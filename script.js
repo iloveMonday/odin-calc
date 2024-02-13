@@ -33,13 +33,13 @@ grid.onclick = (e) => {
 
   if (e.target.classList.contains("operator") && e.target.value != "=") {
     if (total != 0 && num != 0) {
-      total = operate(total, oper, num);
+      total = operate(total, num, oper);
     }
     oper = e.target.value.toString();
   }
 
   if (e.target.value == "=") {
-    operate(parseInt(total), oper, parseInt(num));
+    operate(total, num, oper);
   }
 
   console.log("(1) " + total);
@@ -47,23 +47,26 @@ grid.onclick = (e) => {
   console.log("(2) " + num);
 };
 
-function operate(total, oper, num) {
-  total = parseInt(total);
-  num = parseInt(num);
+function operate(a, b, o) {
+  a = parseInt(a);
+  b = parseInt(b);
 
-  if (oper == "+") {
-    total = add(total, num);
+  if (o == "+") {
+    total = add(a, b);
   }
-  if (oper == "-") {
-    total = subtract(total, num);
+  if (o == "-") {
+    total = subtract(a, b);
   }
-  if (oper == "*") {
-    total = multiply(total, num);
+  if (o == "*") {
+    total = multiply(a, b);
   }
-  if (oper == "/") {
-    total = divide(total, num);
+  if (o == "/") {
+    total = divide(a, b);
   }
   display.innerHTML = total;
+  num = 0;
+  oper = "";
+  return total;
 }
 
 ac.addEventListener("click", () => {
@@ -79,7 +82,8 @@ grid.onmousedown = (e) => {
     grid.onmouseup = (e) => {
       e.target.style.opacity = 1;
     };
-  } else if (e.target.classList.contains("operator")) {
+  } 
+  if (e.target.classList.contains("operator")) {
     grid.mouseup = (e) => {
       grid.style.opacity = 1;
       e.target.style.opacity = 0.5;
@@ -87,37 +91,18 @@ grid.onmousedown = (e) => {
   }
 };
 
-function dimmer() {}
-
-// grid.addEventListener("mousedown", (e) =>{
-//     e.target.style.opacity = 0.5;
-// });
-
 function add(a, b) {
   return a + b;
-}
+};
 
 function subtract(a, b) {
   return a - b;
-}
+};
 
 function multiply(a, b) {
   return a * b;
-}
+};
 
 function divide(a, b) {
   return a / b;
-}
-
-// function sum(array) {
-// return array.reduce((total, current) => total + current, 0);
-// };
-
-// function multiply(array) {
-// return array.reduce((product, current) => product * current);
-// };
-
-// number.addEventListener("click", (e) =>{
-//     e.target.style.backgroundColor = 'red';
-//     console.log("sup")
-//   });
+};
