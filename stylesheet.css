@@ -6,10 +6,12 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  padding: 10px;
   height: 600px;
   width: 400px;
   background-color: black;
-  border: 4 px solid goldenrod;
+  border: 3px solid goldenrod;
+  outline: 5px solid black;
   border-radius: 4px;
 }
 
@@ -18,7 +20,8 @@ body {
   align-items: end;
   justify-content: end;
   padding: 5px;
-  font-size: 36pt;
+  font-size: 48pt;
+  font-family: 'Courier New', Courier, monospace;
   box-sizing: border-box;
   height: 100px;
   background-color: grey;
@@ -26,11 +29,16 @@ body {
   border-radius: 10px;
 }
 
+#button-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
 button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22pt;
+  font-size: 28pt;
   box-sizing: border-box;
   width: 100px;
   height: 100px;
@@ -38,52 +46,25 @@ button {
   border-radius: 20px;
 }
 
-/* .button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22pt;
-    box-sizing: border-box;
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
-    border-radius: 20px;
-} */
-
 .double {
   display: flex;
   flex-grow: 2;
-}
-
-#button-grid {
-  display: flex;
-}
-
-#action-box {
-  display: flex;
-  height: 100px;
 }
 
 .clear, .percent, .sign {
   background-color: rgb(114, 114, 167);
 }
 
-#number-box {
-  display: flex;
-  height: 400px;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
-}
-
 .number, .decimal {
   background-color: rgb(115, 179, 115);
 }
 
-#operator-box {
-  height: 500px;
-  width: 25%;
+.operator{
+    background-color: goldenrod;
+    font-weight: bold;
 }
 
-.operator {
-  background-color: rgb(206, 125, 138);
+.equals {
+  /* background-color: rgb(206, 125, 138); */
+  background-color: rgb(231, 87, 159);
 }
